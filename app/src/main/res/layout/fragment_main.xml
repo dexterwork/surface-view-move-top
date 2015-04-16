@@ -3,12 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/layout"
-    android:background="#DDCC20"
+    android:background="#DDCC80"
     tools:context=".MainActivityFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:background="#303030"
+        android:background="#181818"
         android:orientation="horizontal"
         android:layout_alignParentBottom="true"
         android:layout_height="50dp">
@@ -22,20 +22,35 @@
             android:textStyle="bold"
             android:layout_weight="1"
             android:layout_height="match_parent" />
+
         <Button
             android:id="@+id/btnAddG"
             android:layout_width="match_parent"
             android:text="Green"
             android:textColor="#DDDDDD"
             android:background="#303030"
+            android:layout_marginLeft="1dp"
             android:textStyle="bold"
             android:layout_weight="1"
             android:layout_height="match_parent" />
+
         <Button
             android:id="@+id/btnAddB"
             android:layout_width="match_parent"
             android:text="Blue"
             android:textColor="#DDDDDD"
+            android:layout_marginLeft="1dp"
+            android:background="#303030"
+            android:textStyle="bold"
+            android:layout_weight="1"
+            android:layout_height="match_parent" />
+
+        <Button
+            android:id="@+id/btnClear"
+            android:layout_width="match_parent"
+            android:text="Clear"
+            android:textColor="#DDDDDD"
+            android:layout_marginLeft="1dp"
             android:background="#303030"
             android:textStyle="bold"
             android:layout_weight="1"

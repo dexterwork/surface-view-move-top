@@ -17,6 +17,7 @@ public class FrameSurface extends SurfaceView implements SurfaceHolder.Callback 
         super(context);
         getHolder().addCallback(this);
 //        setZOrderOnTop(true);
+        //把 surface view 的背景變透明
 //        getHolder().setFormat(PixelFormat.TRANSLUCENT);
     }
 
@@ -30,7 +31,6 @@ public class FrameSurface extends SurfaceView implements SurfaceHolder.Callback 
                 canvas.drawRect(0, 0, 200, 200, paint);
             }
         } catch (Exception e) {
-
         } finally {
             if (canvas != null) getHolder().unlockCanvasAndPost(canvas);
         }

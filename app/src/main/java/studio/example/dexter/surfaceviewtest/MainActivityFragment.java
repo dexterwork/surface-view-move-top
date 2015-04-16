@@ -20,8 +20,8 @@ import java.util.ArrayList;
  * A placeholder fragment containing a simple view.
  */
 public class MainActivityFragment extends Fragment implements View.OnClickListener {
-    RelativeLayout layout;
-    Button btnAddR, btnAddG, btnAddB;
+    RelativeLayout layout;//fragment 上的主頁
+    Button btnAddR, btnAddG, btnAddB, btnClear;
     ArrayList<RelativeLayout> surMains;
 
     public MainActivityFragment() {
@@ -39,24 +39,28 @@ public class MainActivityFragment extends Fragment implements View.OnClickListen
         btnAddG.setOnClickListener(this);
         btnAddB = (Button) layout.findViewById(R.id.btnAddB);
         btnAddB.setOnClickListener(this);
+        btnClear = (Button) layout.findViewById(R.id.btnClear);
+        btnClear.setOnClickListener(this);
 
         return view;
     }
 
 
     public void addNewSprite(int color) {
+        //特製 sprite 頁面
         RelativeLayout surMain = (RelativeLayout) getActivity().getLayoutInflater().inflate(R.layout.fuck_layout, null);
         surMain.setBackgroundColor(color);
         surMain.setOnTouchListener(new MTouch());
         surMains.add(surMain);
+        // 加到主頁舞台上
         layout.addView(surMain);
 
         TextView tv = (TextView) surMain.findViewById(R.id.tv);
         tv.setText(String.valueOf(surMains.size()));
 
+        // sprite 加入 surface view 畫圖測試
         FrameLayout frameLayout = (FrameLayout) surMain.findViewById(R.id.frameSurface);
         frameLayout.addView(new FrameSurface(getActivity()));
-
 
     }
 
@@ -72,6 +76,10 @@ public class MainActivityFragment extends Fragment implements View.OnClickListen
                 break;
             case R.id.btnAddB:
                 addNewSprite(Color.BLUE);
+                break;
+            case R.id.btnClear:
+                for (RelativeLayout rl : surMains) layout.removeView(rl);
+                surMains.clear();
                 break;
         }
     }

@@ -18,7 +18,8 @@ public class MTouch implements View.OnTouchListener {
                 this.touchX = event.getX();
                 this.touchY = event.getY();
                 v.bringToFront();
-                ((View)v.getParent()).invalidate();
+                //某些裝置必需要將主頁畫面更新才有用
+                ((View) v.getParent()).invalidate();
                 return true;
             case MotionEvent.ACTION_MOVE:
                 v.setX(v.getX() + event.getX() - touchX);
